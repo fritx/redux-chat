@@ -16,8 +16,7 @@ class MessageComposer extends React.Component {
         name="message"
         value={this.state.text}
         onChange={this._onChange.bind(this)}
-        onKeyDown={this._onKeyDown.bind(this)}
-      />
+        onKeyDown={this._onKeyDown.bind(this)}/>
     );
   }
 

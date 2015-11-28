@@ -17,8 +17,7 @@ export default class MessageSection extends React.Component {
         return (
           <MessageListItem
             key={messageID}
-            message={message}
-          />
+            message={message}/>
         );
       });
 
@@ -30,8 +29,7 @@ export default class MessageSection extends React.Component {
           </ul>
           <MessageComposer
             threadID={currentThread.id}
-            actions={this.props.actions}
-          />
+            actions={this.props.actions}/>
         </div>
       );
     } else {

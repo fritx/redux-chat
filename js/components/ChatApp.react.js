@@ -16,13 +16,11 @@ class ChatApp extends Component {
           threads={threads}
           messages={messages}
           currentThreadID={currentThreadID}
-          actions={actions}
-        />
+          actions={actions}/>
         <MessageSection
           currentThread={threads[currentThreadID]}
           messages={messages}
-          actions={actions}
-        />
+          actions={actions}/>
       </div>
     );
   }

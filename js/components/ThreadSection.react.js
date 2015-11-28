@@ -18,8 +18,7 @@ export default class ThreadSection extends Component {
           thread={thread}
           lastMessage={lastMessage}
           currentThreadID={this.props.currentThreadID}
-          actions={this.props.actions}
-        />
+          actions={this.props.actions}/>
       );
     });
 
