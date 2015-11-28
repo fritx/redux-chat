@@ -13,6 +13,7 @@ export default function threads(state = {}, action) {
       return u({
         [message.threadID]: {
           lastMessage: message.id,
+          lastTimestamp: message.timestamp,
           messages: arr => arr.concat([message.id])
         }
       }, state);
@@ -23,6 +24,7 @@ export default function threads(state = {}, action) {
       return u({
         [message.threadID]: {
           lastMessage: message.id,
+          lastTimestamp: message.timestamp,
           messages: arr =>
             u.reject(id => id === tempMessageID, arr).concat([message.id])
         }
@@ -33,10 +35,12 @@ export default function threads(state = {}, action) {
       let threads = groupBy(action.rawMessages, 'threadID');
       let updated = u(
         u.map(messages => {
+          let lastMessage = last(messages)
           return {
             id: messages[0].threadID,
             threadName: messages[0].threadName,
-            lastMessage: last(messages).id,
+            lastMessage: lastMessage.id,
+            lastTimestamp: lastMessage.timestamp,
             messages: pluck(messages, 'id')
           };
         }),
