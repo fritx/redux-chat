@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import ThreadListItem from '../components/ThreadListItem.react';
+import sortBy from 'lodash/collection/sortBy';
 
 export default class ThreadSection extends Component {
 
   render() {
     let unreadCount = 0;
 
-    let threadListItems = Object.keys(this.props.threads).map(id => {
+    let threadIdList = Object.keys(this.props.threads)
+    threadIdList = sortBy(threadIdList, id => {
+      return - this.props.threads[id].lastTimestamp
+    })
+    let threadListItems = threadIdList.map(id => {
       let thread = this.props.threads[id];
       let lastMessage = this.props.messages[thread.lastMessage];
       if (!lastMessage.isRead) {
