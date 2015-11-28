@@ -15,7 +15,7 @@ class ThreadListItem extends React.Component {
           'active': thread.id === this.props.currentThreadID
         })}
         onClick={this._onClick.bind(this)}>
-        <h5 className="thread-name">{thread.threadName}</h5>
+        <h5 className="thread-name">{lastMessage.isRead ? '' : '* '}{thread.threadName}</h5>
         <div className="thread-time">
           {lastMessage.date.toLocaleTimeString()}
         </div>
